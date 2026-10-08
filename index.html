@@ -1,0 +1,762 @@
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">      <title>Animação CSS</title>
+  </head>
+
+
+  <body>
+    <header>
+      <nav class="nav"> 
+        <ul>
+          <li><a href="#o_que_sao" class="nav_item">O que são</a></li> 
+          <!--vai buscar o id o_que_sao da pagina-->
+          <li><a href="#era" class="nav_item">Eras da Animação</a></li>
+          <li><a href="#transicao" class="nav_item">Transição</a></li>
+          <li><a href="#animacao" class="nav_item">Animações</a></li>
+          <li><a href="#keyframes" class="nav_item">Keyframes</a></li>
+          <li><a href="#propriedades_animacao" class="nav_item">Propriedades da Animação</a></li>
+          <li><a href="#transform" class="nav_item">Transform</a></li>
+          <li><a href="#integrantes" class="nav_item">Integrantes</a></li>
+          </ul>
+        </nav>
+    </header>
+      
+  <main>   
+
+    <h1 id="titulo_animacao">Animação CSS </h1>
+    <div class="container_formas">
+      <div class="forma quadrado1"></div>
+      <!-- quando se coloca espaço no nome de uma classe, é como se tivesse dando nome de uma classe pra 
+      todos que vc vai querer estilizar igual e o nome depois do espaço seria como se fosse o id unico de cada um para 
+      estilizar somente ele, caso precise-->
+    
+      <div class="forma circulo"></div>
+      <div class="forma quadrado2"></div>
+    </div>  
+
+
+    <h2 id="o_que_sao" class="titulo">O que são:</h2> 
+    <div class="container_o_que_sao">
+      <p>Animações na web são transformações visuais em elementos de uma página de internet
+      (como textos, imagens, botões e menus) que ocorrem de forma fluida ao longo do tempo.<br> 
+      O principal objetivo de uma animação não é apenas tornar o site "bonito", mas sim simular as leis
+      da física do mundo real em uma tela digital, tornando a experiência de navegação mais 
+      natural, intuitiva e agradável para o usuário. <br><br>
+              
+      Falando mais tecnicamente, as propriedades de animação do CSS possibilitam aplicar movimentos e interatividade 
+      aos elementos de uma página web usando apenas código CSS, de maneira simples e sem precisar de JavaScript ou
+      outras linguagens. <br><br>
+              
+      Essas propriedades são usadas para definir, controlar e manipular animações, 
+      que são sequências de estados visuais que podem ser aplicadas a um elemento HTML. 
+      </p>
+
+      <img src="assets/stickers/laptop.png" alt="urso com laptop" class="fofo"> 
+    </div>
+
+      <h2 id="era" class="titulo">Eras da animação</h2> 
+      <div class="container_eras">
+        <p> Historicamente, o movimento na internet passou por três grandes eras: <br> </p>
+            
+        <p class="destaques">• A era do GIF animado: Imagens pré-renderizadas, pesadas e sem interação com as ações do usuário. <br><br>
+        • A era do Adobe Flash: Uma tecnologia proprietária que dominou os anos 2000, mas que exigia plug-ins pesados, <br>
+        consumia muita bateria, tinha graves problemas de segurança e acabou sendo descontinuada. <br><br>
+        • A era moderna (JavaScript e CSS): Onde o próprio navegador calcula e renderiza os movimentos nativamente. <br><br>
+        </p><br>
+
+        <p>No cenário atual do desenvolvimento web, as animações desempenham um papel fundamental na Experiência do Usuário (UX)<br>
+        e na Interface do Usuário (UI) por meio de três funções principais: </p>
+              
+        <p class="destaques"> • Feedback Visual: Mostrar ao usuário que uma ação deu certo. Por exemplo, quando um botão diminui levemente <br>
+        de tamanho ao ser clicado, simulando um botão físico. <br><br>
+
+        • Orientação Espacial: Ajudar o usuário a entender de onde um elemento veio e para onde ele foi. Por exemplo, <br>
+        um menu lateral que "desliza" para dentro da tela em vez de simplesmente aparecer do nada.<br> <br>
+
+        • Gerenciamento de Expectativa: Diminuir a percepção do tempo de espera por meio de barras de carregamento <br>
+        animadas (spinners), mantendo o usuário engajado.<br>
+        </p><br>
+
+        <p>Com a evolução dos navegadores e dos padrões da W3C (órgão que dita as regras da internet), 
+        o CSS (Cascading Style Sheets) deixou de ser apenas uma ferramenta de formatação estática e 
+        se tornou uma das ferramentas mais poderosas para criar esses movimentos. Através de propriedades 
+        nativas de transição e quadros-chave (keyframes), o CSS permite criar desde microinterações sutis até
+        coreografias visuais complexas, garantindo alta performance, leveza e acessibilidade sem a necessidade
+        de sobrecarregar o site com códigos pesados de JavaScript.</p><br>
+    </div>
+
+    <h2 id="transicao" class="titulo">Transição</h2>
+    <div class="container_transicao">
+      <section class="secao-transicao">
+        <p>A <strong style="color: #00f3ff">transição</strong> no CSS permite alterar os estilos de um elemento de forma suave 
+        e gradual, evitando uma mudança brusca e instantânea. Para que uma transição ocorra, ela sempre necessita de um <strong>
+        gatilho de ativação</strong> disparado pelo usuário, sendo o mais comum o ato de passar o mouse por cima do elemento (<code>:hover</code>).</p>
+          
+        <p>Abaixo, você pode ver a diferença prática. Passe o mouse sobre os botões para ver como a transição transforma uma mudança seca
+        em um movimento natural e agradável:</p>
+                  
+        <div class="container_botoes"><!-- Botões interativos para demonstrar o conceito -->
+          <button class="botao sem_transicao">Sem Transição ❌</button>
+          <button class="botao com_transicao">Com Transição ✨</button>
+        </div>
+              
+        <div class="container_prop_transicao">
+          <p>O comportamento de uma transição é ditado por <strong style="color: #00f3ff">quatro propriedades</strong> fundamentais do CSS:</p><br>  
+          <p class="destaques"><strong style="color: #00f3ff">transition-property: </strong> Define especificamente qual estilo vai mudar suavemente
+          (por exemplo: background-color, width, opacity ou a palavra all para aplicar a tudo).
+          </p>
+              
+          <p class="destaques"><strong style="color: #00f3ff">transition-duration:</strong> Determina o tempo que a mudança vai levar para se 
+          completar (ex: 0.3s, 1s). Se essa propriedade não for definida, o valor padrão é 0 e o efeito continua seco e instantâneo.
+          </p> 
+
+          <p class="destaques"><strong style="color: #00f3ff">transition-timing-function:</strong> Controla o ritmo e a aceleração do movimento. Ela define 
+          se a transição vai começar rápida e terminar devagar (ease-out), começar devagar e 
+          acelerar (ease-in), ou manter uma velocidade constante do início ao fim (linear).
+          </p>
+                  
+          <p class="destaques"><strong style="color: #00f3ff">transition-delay:</strong> Define um tempo de espera em segundos ou milissegundos antes
+          que a animação realmente comece a acontecer após o gatilho ser acionado.
+          </p><br>
+            
+          <p>A principal característica que diferencia uma transição de uma animação completa é o seu fluxo linear de ida e 
+          volta: ela move um elemento do Ponto A ao Ponto B enquanto o gatilho estiver ativo. 
+          Assim que o usuário retira o gatilho (como tirar o mouse de cima do elemento em um efeito :hover), 
+          o elemento faz o fluxo inverso, voltando linearmente do Ponto B para o Ponto A.
+          </p>
+        </div>    
+
+      </section>
+    </div>
+
+    <h2 id="animacao" class="titulo">Animações</h2>
+    <div class="area_animacao">
+      
+      <div class="piramide"><!-- abaixo estao as partes de cada lado da piramide -->
+        <div class="face frente"></div>
+        <div class="face tras"></div>
+        <div class="face esquerda"></div>
+        <div class="face direita"></div>
+      </div>
+
+      <div class="universo">  
+        <img src="assets/stickers/sun.png" alt="sol" class="planetas sol">
+           <div class="orbita">
+             <img src="assets/stickers/earth.png" alt="terra" class="planetas terra">
+           </div>   
+      </div>
+
+      <img src="assets/stickers/cat_lover.png" alt="gatinho fofo" id="gato">
+    </div>
+        
+    <p class="paragrafos_pilar">Pilares da Animação CSS.<br>
+    Os pilares da animação CSS são compostos por três elementos principais que,
+    combinados, permitem criar movimentos fluidos e controlados em elementos HTML.<br>
+    São eles: KeyFrames (<strong>@keyframes</strong>), 
+    Propriedades de Animação (<strong>animation</strong>) e Funções de Tempo (Easing/ <strong>animation-timing-function</strong>).</p>
+       
+
+    <h2 id="keyframes">@Keyframes</h2>
+    <div class="container_keyframes">
+      <p>O <code>@keyframes</code> é a regra do CSS que define os passos de uma animação: em cada momento 
+      (from/to ou porcentagens), você diz como o elemento deve estar. 
+      O navegador cria sozinho o movimento entre esses passos. Depois, a animação é aplicada ao 
+      elemento com animation, usando o nome que você deu ao <code>@keyframes</code>.
+      </p><br><br>
+            
+      <p><strong style="color: #00f3ff; font-size: 22px;">1. Como escrever:</strong> use a palavra
+      <code>@keyframes</code>, depois o nome que você escolher e, dentro das chaves, os passos da animação.
+      </p><br>
+
+      <div class="container_keyframes1">
+      <pre class="codigo"><code>@keyframes <span style="color: rgb(203, 147, 255);">nome-da-animacao</span> {
+    from { /* estilo inicial */ }
+    to   { /* estilo final */ }
+    } </code></pre>
+          <!--a tag pre faz uma pre formatação lendo todas as linhas e formata conforme digitado, por isso as linhas estao 
+          tão recuadas para esquerda, para ficar visualmente desse jeito no site-->
+
+        <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+        <pre class="propriedades1"><code>@keyframes <span style="color: rgb(203, 147, 255);">mudar_de_Cor</span> {
+    from {background-color: #8A00C4;}
+    to   {background-color: #FF13F0;}
+    }</code></pre>
+
+          <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+          <div class="retangulo_mudaCor"></div>
+        </div>
+          
+      <br><br><br>
+            
+        <p><strong style="color: #00f3ff; font-size: 22px">2. Duas formas de marcar os passos:</strong>
+        <code>from</code> e <code>to</code> servem para animações simples (só começo e fim).
+        Para vários passos, use porcentagens: <code>0%</code>, <code>50%</code> e <code>100%</code>.</p>
+            
+        <div class="container_keyframes2">
+          <pre class="propriedades1"><code>@keyframes <span style="color: rgb(203, 147, 255);">pular</span> {
+    0%   {transform: translateY(0);}
+    50%  {transform: translateY(-80px);}
+    100% {transform: translateY(0);}
+    }</code></pre>
+
+          <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+          <div class="demonstracao">
+          <div class="demo_keyframes" id="quadrado_pulando"></div> <!--quadrado pulando-->
+          
+          <div class="demo_keyframes"><img src="assets/stickers/rabbit_cute.png" alt="coelhinho fofo" id="coelho"></div>
+          </div>  
+        </div>
+          
+       <br><br><br>
+
+      <p><strong style="color: #00f3ff; font-size: 22px">3. O que colocar dentro dos passos:</strong>
+      propriedades que podem ser animadas, como: </p>
+        <div class="codigo"> 
+          <pre><code><strong style="color: #00f3ff;">transform</strong></code> (mover, girar, aumentar, inclinar),
+<code><strong style="color: #00f3ff;">opacity</strong></code> (aparecer e sumir), 
+<code><strong style="color: #00f3ff;">filter</strong></code> (desfocar, escurecer, clarear, mudar as cores), 
+<strong style="color: #00f3ff;">cores </strong> (<code>background-color</code>),
+<code><strong style="color: #00f3ff;">border-radius</strong></code> (arredondar os cantos, de quadrado a círculo).</pre>
+        </div>
+        <p>💡Dica: Dê preferência a <code>transform</code> e <code>opacity</code>, que deixam a animação mais leve.</p>
+
+       <br><br><br>
+
+        <p><strong style="color: #00f3ff; font-size: 22px">4. Exemplo real deste site:</strong> os quadrados do
+        topo da página usam este <code>@keyframes</code>. Em 0% não há giro, em 50% os cantos ficam mais
+        arredondados e em 100% o quadrado completa uma volta.
+        </p>
+            
+        <div class="container_keyframes4">
+          <pre class="propriedades1"><code>@keyframes <span style="color: rgb(203, 147, 255);">girar-quadrado</span> {
+    0%   {transform: rotate(0deg); border-radius: 4px;}
+    50%  {border-radius: 25px;}
+    100% {transform: rotate(360deg); border-radius: 4px;}
+    }</code></pre>
+
+          <img src="assets/stickers/seta.png" alt="seta" class="seta">
+          <div class="forma quadrado1 demo_quadrado"></div> 
+        </div>
+             
+       <br><br><br>
+
+        <p><strong style="color: #00f3ff; font-size: 22px">5. Como ligar ao elemento:</strong> o
+        <code>@keyframes</code> sozinho não faz nada. Ele só vira animação quando você usa
+        <code>animation</code> com o mesmo nome. Dá para aplicar várias animações no mesmo elemento,
+        separando por vírgula, como nos quadrados do topo.</p>
+          <div class="container_keyframes5">
+            <pre class="propriedades1"><code>.quadrado1 {
+    animation: <span style="color: rgb(203, 147, 255);">girar-quadrado</span> 6s ease-in-out infinite,
+    <span style="color: rgb(203, 147, 255);">mudarCor</span> 6s ease-in-out infinite;
+    }</code></pre>  
+            
+            <img src="assets/stickers/seta.png" alt="seta" class="seta">
+            <div class="forma quadrado1 demo_quadrado"></div> 
+          </div>  
+        </div>
+
+          
+    <h2 id="propriedades_animacao" class="titulo"> Propriedades de Animação</h2>
+    <div class="container_propriedades">
+        <p>As principais propriedades de animação em CSS são:</p>   
+               
+            <div class="animation_name"> 
+              <p class="propriedades"><strong style="color: #00f3ff;">animation-name: </strong> Especifica o nome da regra <code>@keyframes</code> que define a animação. 
+              Cada <code>@keyframes</code> contém os estilos que devem ser aplicados em diferentes momentos da animação.</p>
+              <img src="assets/stickers/seta.png" alt="seta" class="seta">
+              <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>@keyframes desvanecer {
+  from {opacity: 1;}
+  to   {opacity: 0;}
+}
+
+@keyframes piscar {
+  0%, 100% {opacity: 1;}
+  50%      {opacity: 0.2;}
+}
+
+@keyframes surgir {
+  from {opacity: 0; transform: translateY(20px);}
+  to   {opacity: 1; transform: translateY(0);}
+}
+
+.gato1 {animation-name: desvanecer;}
+.gato2 {animation-name: piscar;}
+.gato3 {animation-name: surgir;}
+            </code></pre>
+
+              <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+              <div class="demo_nome">
+                <div class="item_nome">
+                  <img src="assets/stickers/cat_lover.png" alt="gato desvanecendo" class="gato_demo gato1">
+                  <span>desvanecer</span>
+                </div>
+              
+                <div class="item_nome">
+                  <img src="assets/stickers/cat_lover.png" alt="gato piscando" class="gato_demo gato2">
+                  <span>piscar</span>
+                </div>
+
+                <div class="item_nome">
+                  <img src="assets/stickers/cat_lover.png" alt="gato surgindo" class="gato_demo gato3">
+                  <span>surgir</span>
+                </div>
+              </div>
+            </div>                            
+          
+       <br><br><br><br><br><br>
+             
+            <div class="animation_duration">
+            <p class="propriedades"><strong style="color: #00f3ff;">animation-duration:</strong> Define o tempo total que a animação deve levar para completar um ciclo.</p>
+             
+            <img src="assets/stickers/seta.png" alt="seta" class="seta">
+            <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong> 
+<code>
+@keyframes homem_deslocar{
+  from { transform: translateX(-25px); }   
+  to   { transform: translateX(75px); }    
+}
+
+.homem{
+  animation: homem_deslocar 2s ease-in-out
+  infinite alternate;
+}
+
+</code></pre>
+
+              <img src="assets/stickers/seta.png" alt="seta" class="seta">
+             
+              <img src="assets/stickers/homem.png" alt="animacao de homem deslocando" class="homem">
+              </div>
+           
+       <br><br><br><br><br><br>
+
+            <div class="animation_timing">    
+              <p class="propriedades"><strong style="color: #00f3ff;">animation-timing-function:</strong> Controla a velocidade da animação ao longo do tempo, permitindo aceleração, 
+              desaceleração ou variações na velocidade.</p>
+              <img src="assets/stickers/seta.png" alt="seta" class="seta">
+              <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>@keyframes correr {
+  0%   {transform: translateX(0);}
+  80%  {transform: translateX(175px);}
+  100% {transform: translateX(175px);}
+}
+
+.t_linear {
+  animation: correr 5s linear infinite;
+}
+
+/* nas outras muda só a função:
+   ease-in, ease-out,
+   ease-in-out e steps(6) */</code></pre>
+              <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+              <div class="pista_corrida">
+                <div class="faixa"><span class="nome_faixa">linear</span><div class="trilho"><div class="bolinha t_linear"></div></div></div>
+                <div class="faixa"><span class="nome_faixa">ease-in</span><div class="trilho"><div class="bolinha t_ease_in"></div></div></div>
+                <div class="faixa"><span class="nome_faixa">ease-out</span><div class="trilho"><div class="bolinha t_ease_out"></div></div></div>
+                <div class="faixa"><span class="nome_faixa">ease-in-out</span><div class="trilho"><div class="bolinha t_ease_in_out"></div></div></div>
+                <div class="faixa"><span class="nome_faixa">steps(6)</span><div class="trilho"><div class="bolinha t_steps"></div></div></div>
+                <p class="legenda_pista">Todas as bolinhas percorrem a mesma distância no mesmo tempo. O animation-timing-function muda só a forma como a velocidade varia durante o caminho.</p>
+              </div>
+            </div>
+       
+       <br><br><br><br><br><br>
+       
+        <div class="animation_delay">  
+          <p class="propriedades"><strong style="color: #00f3ff;">animation-delay:</strong> Especifica o atraso antes que a animação comece.</p>
+          <img src="assets/stickers/seta.png" alt="seta" class="seta">
+          <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong> 
+<code>@keyframes pula_canguru {
+  0%, 100% {transform: translateY(0);}   
+  50%      {transform: translateY(-90px);}
+}
+
+.canguru_pula {
+  animation: pula_canguru 1s 
+  ease-in-out infinite; 
+}
+
+.canguru_atraso {
+  animation-delay: 4s;   
+}
+</code></pre>
+
+          <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+          <div class="demo_canguru">
+            <div class="cangurus">
+              <img src="assets/stickers/canguru-ptebr.png" alt="canguru preto e branco" class="canguru_pula">
+              <img src="assets/stickers/canguru.png" alt="canguru" class="canguru_pula canguru_atraso">  
+              </div>  
+              <p class="legenda_contagem">Passe o mouse na caixa para começar.</p>
+           
+          </div>
+        </div>   
+
+
+       <br><br><br><br><br><br>
+       
+        <div class="animation_iteration">
+          <p class="propriedades"><strong style="color: #00f3ff;">animation-iteration-count:</strong> Determina quantas vezes a animação deve repetir.</p>
+          <img src="assets/stickers/seta.png" alt="seta" class="seta">  
+          
+          <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>.sapo {
+  animation-name: pular_sapo;
+  animation-duration: 1s;
+}
+
+.um     {animation-iteration-count: 1;}
+.tres   {animation-iteration-count: 3;}
+.sempre {animation-iteration-count: infinite;}</code></pre>
+
+          <div class="demo_linha">
+            <img src="assets/stickers/seta.png" alt="seta" class="seta">
+            <div class="demo_contagem">
+              <div class="sapos_contagem">
+                <div class="item_contagem">
+                  <img src="assets/stickers/sapo.png" alt="sapo que pula 1 vez" class="sapo um">
+                  <span>1 vez</span>
+                </div>
+       
+                <div class="item_contagem">
+                  <img src="assets/stickers/sapo.png" alt="sapo que pula 3 vezes" class="sapo tres">
+                  <span>3 vezes</span>
+                </div>
+
+                <div class="item_contagem">
+                  <img src="assets/stickers/sapo.png" alt="sapo que pula sem parar" class="sapo sempre">
+                  <span>infinite</span>
+                </div>
+              </div>
+              <p class="legenda_contagem">Passe o mouse na caixa para começar.</p>
+            </div>
+          </div>
+        </div>        
+      
+
+       <br><br><br><br><br><br>
+
+        <div class="animation_direction">
+          <p class="propriedades"><strong style="color: #00f3ff;">animation-direction:</strong> Define se a animação deve ser reproduzida na direção normal,
+          inversa, alternativa ou alternativa inversa.</p>
+          <img src="assets/stickers/seta.png" alt="seta" class="seta">
+        
+         <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>.quadrado_direcao {
+  animation-name: mover_quadrado;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.normal {
+  animation-direction: normal;
+}
+
+.inversa {
+  animation-direction: reverse;
+}
+
+.alternativa {
+  animation-direction: alternate;
+}
+
+.alternativa_inversa {
+  animation-direction: alternate-reverse;
+}
+
+@keyframes mover_quadrado {
+  from {transform: translateX(0);}
+  to   {transform: translateX(100px);}
+}</code></pre>
+
+          <div class="demo_linha">
+
+          <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+            <div class="demo_direcao">
+              <div class="quadrados_direcao">
+
+              <div class="item_direcao">
+               <div class="quadrado_direcao normal"></div>
+               <span>normal</span>
+              </div>
+
+              <div class="item_direcao">
+                <div class="quadrado_direcao inversa"></div>
+                <span>reverse</span>
+              </div>
+
+              <div class="item_direcao">
+               <div class="quadrado_direcao alternativa"></div>
+               <span>alternate</span>
+              </div>
+
+              <div class="item_direcao">
+                <div class="quadrado_direcao alternativa_inversa"></div>
+                <span>alternate-reverse</span>
+              </div>
+
+              </div>
+              <p class="legenda_contagem">
+              Passe o mouse na caixa para começar.
+              </p>
+            </div>
+          </div>
+        </div>
+  
+       <br><br><br><br><br><br>
+
+        <div class="animation_fill">
+          <p class="propriedades"><strong style="color: #00f3ff;">animation-fill-mode:</strong> Especifica os estilos que devem ser aplicados antes e depois da execução da animação.</p>
+          <img src="assets/stickers/seta.png" alt="seta" class="seta"> 
+
+          <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>@keyframes andar_carrinho {
+   0%   {transform: translateX(0);}
+   100% {transform: translateX(100px);}
+}
+
+.carrinho {
+  animation: andar_carrinho 2s ease-in-out;
+  animation-fill-mode: forwards;
+}</code></pre>
+  
+          <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+          <div class="demo_carrinho">
+            <img src="assets/stickers/carrinho.png" alt="carrinho" class="carrinho">
+            <p class="legenda_contagem">Passe o mouse na caixa para começar.</p>
+          </div>
+          
+        </div>
+
+       <br><br><br><br><br><br>
+       
+        <div class="animation_play">
+        <p class="propriedades"><strong style="color: #00f3ff;">animation-play-state:</strong> Permite pausar ou retomar a animação.</p>
+        <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+        <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>@keyframes pular_gatinho {
+  0%, 100% {transform: translateY(0);}
+  50%      {transform: translateY(-50px);}
+}
+
+.gatinho {
+  animation: pular_gatinho 1s
+  ease-in-out infinite;
+}
+
+.demo_play:hover .gatinho {
+  animation-play-state: paused;
+}</code></pre>
+
+           <div class="demo_linha">
+              <img src="assets/stickers/seta.png" alt="seta" class="seta">
+                <div class="demo_contagem demo_play">
+                  <img src="assets/stickers/gatinho.png" alt="gatinho pulando" class="gatinho">
+                  <p class="legenda_contagem">Passe o mouse na caixa para pausar.</p>
+              </div>
+           </div>
+        </div>
+
+       <br><br><br><br><br><br>
+
+       <div class="animation_timeline">
+  <p class="propriedades"><strong style="color: #00f3ff;">animation-timeline: </strong> Propriedade CSS que especifica a timeline usada para controlar
+  o progresso de uma animação. Integrada às especificações oficiais do CSS, ela permite associar uma animação 
+  a diferentes tipos de timeline: a linha do tempo padrão baseada em tempo (DocumentTimeline), a scroll progress
+  timeline (usando scroll() ou nomes personalizados) e a view progress timeline (usando view() ou nomes personalizados). 
+  Atualmente, a propriedade conta com amplo suporte cross-browser em sua versão Baseline, o que a torna totalmente pronta 
+  para uso em produção. 
+  </p>
+
+  <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+  <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>@keyframes girar_sol {
+  from {transform: rotate(0deg) scale(0.6);}
+  to   {transform: rotate(360deg) scale(1.2);}
+}
+
+.solzinho {
+  animation: girar_sol linear;
+  animation-timeline: scroll();
+}</code></pre>
+
+  <div class="demo_linha">
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+    <div class="demo_contagem">
+      <div class="mini_pagina">
+        <div class="mini_pagina_conteudo">
+          <img src="assets/stickers/solzinho.png" alt="solzinho girando" class="solzinho">
+        </div>
+      </div>
+      <p class="legenda_contagem">Role a barra dentro da caixa para o solzinho girar.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+      <h2 id="transform" class="titulo">Transform</h2>
+<div class="container_propriedades container_transform">
+  <p>A propriedade <code>transform</code> muda a forma, a posição e o tamanho de um elemento sem mexer nos vizinhos.
+  Cada tipo de mudança é uma <strong style="color: #00f3ff">função</strong>:</p>
+
+  <div class="transform_translate">
+    <p class="propriedades"><strong style="color: #00f3ff;">translate():</strong> Move o elemento no eixo X (horizontal) e no eixo Y (vertical). Valores positivos vão para a direita e para baixo.</p>
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>.t_translate {
+  transition: transform 0.6s;
+}
+
+.demo_t:hover .t_translate {
+  transform: translate(60px, -30px);
+}</code></pre>
+
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <div class="demo_contagem demo_t">
+      <div class="palco_t"><div class="quad_t t_translate"></div></div>
+      <p class="legenda_contagem">Passe o mouse na caixa para começar.</p>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br>
+
+  <div class="transform_rotate">
+    <p class="propriedades"><strong style="color: #00f3ff;">rotate():</strong> Gira o elemento em graus (deg). O giro acontece em torno do centro, que é o <code>transform-origin</code> padrão.</p>
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>.t_rotate {
+  transition: transform 0.6s;
+}
+
+.demo_t:hover .t_rotate {
+  transform: rotate(45deg);
+}</code></pre>
+
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <div class="demo_contagem demo_t">
+      <div class="palco_t"><div class="quad_t t_rotate"></div></div>
+      <p class="legenda_contagem">Passe o mouse na caixa para começar.</p>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br>
+
+  <div class="transform_scale">
+    <p class="propriedades"><strong style="color: #00f3ff;">scale():</strong> Aumenta ou diminui o elemento. O valor 1 é o tamanho original, 1.5 é 50% maior e 0.5 é a metade.</p>
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>.t_scale {
+  transition: transform 0.6s;
+}
+
+.demo_t:hover .t_scale {
+  transform: scale(1.5);
+}</code></pre>
+
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <div class="demo_contagem demo_t">
+      <div class="palco_t"><div class="quad_t t_scale"></div></div>
+      <p class="legenda_contagem">Passe o mouse na caixa para começar.</p>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br>
+
+  <div class="transform_skew">
+    <p class="propriedades"><strong style="color: #00f3ff;">skew():</strong> Inclina o elemento, em graus, no eixo X e/ou no eixo Y, como se ele fosse "empurrado" de lado.</p>
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>.t_skew {
+  transition: transform 0.6s;
+}
+
+.demo_t:hover .t_skew {
+  transform: skew(25deg, 10deg);
+}</code></pre>
+
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <div class="demo_contagem demo_t">
+      <div class="palco_t"><div class="quad_t t_skew"></div></div>
+      <p class="legenda_contagem">Passe o mouse na caixa para começar.</p>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br>
+
+  <div class="transform_combinar">
+    <p class="propriedades"><strong style="color: #00f3ff;">Combinando funções:</strong> Várias funções podem ficar no mesmo <code>transform</code>, separadas por espaço. A ordem importa: <code>rotate() translateX()</code> não leva ao mesmo lugar que <code>translateX() rotate()</code>.</p>
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <pre class="codigo"><strong style="color: #00f3ff;"><em>NO CSS:</em></strong>
+
+<code>.t_combinar {
+  transition: transform 0.6s;
+}
+
+.demo_t:hover .t_combinar {
+  transform: translateX(50px)
+  rotate(45deg);
+}</code></pre>
+
+    <img src="assets/stickers/seta.png" alt="seta" class="seta">
+
+    <div class="demo_contagem demo_t">
+      <div class="palco_t"><div class="quad_t t_combinar"></div></div>
+      <p class="legenda_contagem">Passe o mouse na caixa para começar.</p>
+    </div>
+  </div>
+
+</div>
+  
+
+ <h2 id="integrantes" class="titulo">Integrantes</h2>
+  <ul class="integrantes_lista">
+    <li>Alanis Aparecida Laureano Domingues</li>
+    <li>Fernando Terumasa Ikeda Son</li>
+    <li>Jéssica Caroline Latance</li>
+    <li>Sara da Silva Gongora</li>
+    <li>Talita Ramos Lauriano Akyama</li>
+  </ul>
+<br><br><br><br>
+
+
+
+  </main>
+</body>
+</html>                              
+            
+

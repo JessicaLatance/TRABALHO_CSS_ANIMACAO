@@ -1,0 +1,914 @@
+@font-face {
+  /* declara uma fonte customizada, dizendo ao navegador onde buscar o arquivo */
+  font-family: "minhaFonte";
+  src: url("assets/font/Roboto/static/Roboto_SemiCondensed-Light.ttf") format("truetype");
+}
+
+/* ---------- BASE ---------- */
+
+body {
+  margin: 0; /* para o menu ficar colado no topo */
+  background-color: black;
+  color: white;
+  font-family: "minhaFonte", sans-serif;
+  font-size: 18px;
+
+  background-image: /* fundo quadriculado */
+    linear-gradient(to right, rgba(248, 248, 248, 0.130) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(248, 248, 248, 0.130) 1px, transparent 1px);
+
+  background-size:
+    calc(100% / 60) 100%, /* número de linhas verticais */
+    100% 15px;            /* o número em px é o espaço das linhas horizontais */
+}
+
+/* ---------- MENU ---------- */
+
+header {
+  position: sticky; /* o menu gruda no topo ao rolar a página */
+  top: 0;
+  z-index: 1000;    /* o menu flutua POR CIMA de todos os textos e imagens */
+}
+
+nav ul {
+  background-color: rgb(108, 45, 168);
+  width: 100%;
+  margin: 0;
+  display: flex;            /* itens um do lado do outro */
+  list-style: none;         /* tira a bolinha da lista */
+  justify-content: center;  /* itens no centro */
+  padding: 10px;
+}
+
+ul, a {
+  text-decoration: none; /* tira o sublinhado dos links */
+  color: inherit;        /* o link mantém a cor do texto original */
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  background-color: #111;
+}
+
+.nav_item {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px solid transparent; /* evita que o menu mude de tamanho ao aplicar a borda no hover */
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav_item:hover { /* efeito de brilho ao passar o mouse em um item do menu */
+  color: #00f3ff;
+  border-color: #00f3ff;
+  background-color: rgba(0, 243, 255, 0.05);
+  box-shadow: 0 0 10px #00f3ff,
+              0 0 25px rgba(0, 243, 255, 0.5);
+}
+
+/* ---------- TÍTULOS ---------- */
+
+#titulo_animacao {
+  font-size: 100px;
+  padding: 35px 55px;
+  color: #bd00ff;
+  text-align: center;
+  margin-top: 80px;
+  font-weight: bold;
+}
+
+h2, .titulo {
+  margin-top: 100px;
+  margin-left: 150px;
+  font-size: 40px;
+  font-weight: bold;
+  color: blueviolet;
+  scroll-margin-top: 100px; /* ao clicar no menu, o título para abaixo do menu fixo */
+}
+
+/* ---------- FORMAS DO TOPO ---------- */
+
+.container_formas {
+  display: flex;
+  justify-content: center; /* centraliza o trio de formas */
+  gap: 50px;
+  margin: 60px 150px;
+}
+
+.forma {
+  width: 150px;
+  height: 150px;
+  background: #bd00ff;
+  box-shadow: 0 8px 20px rgba(236, 208, 255, 0.463);
+  box-sizing: border-box; /* a borda não altera o tamanho real do quadrado */
+}
+
+.quadrado1, .quadrado2 {
+  border: 3px solid rgb(0, 217, 255);
+  animation: girar-quadrado 6s ease-in-out infinite,
+             mudarCor 6s ease-in-out infinite;
+}
+
+.circulo {
+  background-color: rgb(0, 217, 255);
+  border: 3px solid #bd00ff;
+  border-radius: 100px;
+  animation: pulsar-circulo 2s ease-in-out infinite;
+}
+
+@keyframes girar-quadrado {
+  0%   { transform: rotate(0deg); border-radius: 4px; }
+  50%  { border-radius: 35px; } /* os cantos arredondam no meio do giro */
+  100% { transform: rotate(360deg); border-radius: 4px; }
+}
+
+@keyframes mudarCor {
+  from { background-color: #8A00C4; }
+  to   { background-color: #FF13F0; }
+}
+
+@keyframes pulsar-circulo {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.15); } /* cresce um pouquinho */
+  100% { transform: scale(1); }
+}
+
+/* ---------- O QUE SÃO ---------- */
+
+#o_que_sao {
+  margin-top: 200px;
+}
+
+.container_o_que_sao {
+  margin: -30px 150px;
+  display: flex;
+  align-items: center;             /* centraliza o ursinho na vertical em relação ao texto */
+  justify-content: space-between;  /* texto à esquerda e ursinho à direita */
+  gap: 30px;
+  width: calc((100% / 12) * 9);
+  max-width: 100%;
+}
+
+.fofo {
+  width: 220px;
+  height: 220px;
+  margin: 0 55px 60px 35px;
+  animation: pulsar 2s ease-in-out infinite;
+  line-height: 1;
+}
+
+@keyframes pulsar {
+  0%   { transform: scale(1); }
+  20%  { transform: scale(1.15); } /* leve pulso */
+  40%  { transform: scale(1); }
+  60%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ---------- ERAS DA ANIMAÇÃO ---------- */
+
+.container_eras {
+  margin: -10px 150px;
+}
+
+.destaques {
+  border: 2px solid #00f3ff;
+  border-radius: 30px 0;
+  padding: 10px;
+  display: inline-block;
+}
+
+/* ---------- TRANSIÇÃO ---------- */
+
+.container_transicao {
+  margin: -40px 150px;
+}
+
+.secao-transicao { /* isola a tela da transição */
+  min-height: 85vh;
+  padding-top: 40px;
+}
+
+.container_transicao p {
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+}
+
+.container_botoes { /* alinha os dois botões de exemplo lado a lado */
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 125px auto;
+}
+
+.botao {
+  width: 320px;
+  height: 120px;
+  padding: 15px 30px;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  border: 2px solid #bd00ff;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.botao:hover { /* o gatilho: ao passar o mouse, os dois tentam mudar de cor e ganhar brilho */
+  background-color: rgb(108, 45, 168);
+  box-shadow: 0 0 15px rgba(117, 69, 162, 0.6);
+}
+
+.com_transicao { /* botão 2: a mudança fica suave e gradual */
+  transition: all 0.9s ease-in-out;
+}
+
+/* ---------- ANIMAÇÕES (pirâmide, órbita e gato) ---------- */
+
+#animacao {
+  margin-top: 200px;
+}
+
+.area_animacao {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 60px;
+  perspective: 1000px; /* dá a sensação de 3D: o que está perto fica maior e o que está longe, menor */
+}
+
+/* pirâmide */
+
+.piramide { /* o CSS não tem triângulo pronto, então a pirâmide é montada com 4 faces */
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform-style: preserve-3d; /* os filhos também são objetos 3D reais */
+  margin: 0 150px;
+  animation: gira-piramide 5s linear infinite;
+}
+
+.face { /* formato base de triângulo usado pelas 4 faces */
+  position: absolute; /* as faces ficam uma por cima da outra no início */
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid red; /* a altura do triângulo */
+  transform-origin: center bottom;
+}
+
+.frente {
+  border-bottom-color: #ff007f;
+  transform: rotateX(30deg) translateZ(57px);
+}
+
+.tras {
+  border-bottom-color: #00adb5;
+  transform: rotateY(180deg) rotateX(30deg) translateZ(57px);
+}
+
+.esquerda {
+  border-bottom-color: #8a2be2;
+  transform: rotateY(-90deg) rotateX(30deg) translateZ(57px);
+}
+
+.direita {
+  border-bottom-color: #ffb703;
+  transform: rotateY(90deg) rotateX(30deg) translateZ(57px);
+}
+
+@keyframes gira-piramide {
+  0%   { transform: rotateX(-25deg) rotateY(0deg); }   /* começa levemente inclinada */
+  100% { transform: rotateX(-25deg) rotateY(360deg); } /* mantém a inclinação e dá uma volta completa */
+}
+
+/* sol e Terra */
+
+.universo {
+  position: relative; /* permite posicionar o Sol e a órbita com top e left */
+  width: 250px;
+  height: 250px;
+  margin: 0 150px 0 0;
+}
+
+.sol {
+  width: 150px;
+  position: absolute;
+  top: 65px;
+  left: 65px;
+}
+
+.orbita {
+  position: absolute;
+  width: 270px;
+  height: 270px;
+  top: 20px;
+  left: 20px;
+  animation: orbitar 5s linear infinite; /* a órbita gira continuamente */
+}
+
+.terra {
+  width: 50px;
+  position: absolute;
+  top: 0;      /* a Terra fica no topo da órbita */
+  left: 80px;
+}
+
+@keyframes orbitar {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); } /* uma volta completa */
+}
+
+/* gato */
+
+#gato {
+  width: 150px;
+  height: 150px;
+  animation: gato-pulsante 3s ease-in-out infinite;
+}
+
+@keyframes gato-pulsante {
+  0%   { transform: scale(1); }    /* tamanho original */
+  20%  { transform: scale(1.50); } /* aos 20% do tempo, aumenta 50% */
+  50%  { transform: scale(1); }    /* aos 50%, volta ao tamanho original */
+  70%  { transform: scale(1.25); } /* aos 70%, aumenta 25% */
+  100% { transform: scale(1); }    /* aos 100%, volta ao tamanho original */
+}
+
+.paragrafos_pilar {
+  margin: 180px 150px;
+}
+
+/* ---------- @KEYFRAMES ---------- */
+
+#keyframes {
+  margin-top: -120px;
+}
+
+.container_keyframes {
+  margin: 0 150px 100px 150px;
+}
+
+.codigo { /* caixa preta de código */
+  background-color: #000000;
+  border: 2px solid #bd00ff;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 0;
+  font-size: 16px;
+  display: inline-block; /* a borda fica rente ao texto */
+}
+
+.propriedades1 { /* caixa de código com fundo azul-petróleo */
+  padding: 25px 40px;
+  border: 2px solid #00f3ff;
+  border-radius: 15px 0 15px 0;
+  margin-top: 20px;
+  background-color: #003c40;
+  display: inline-block;
+}
+
+.seta {
+  width: 60px;
+  height: 60px;
+}
+
+/* as quatro linhas de exemplo (1, 2, 4 e 5) alinham as caixas e figuras no centro */
+.container_keyframes1,
+.container_keyframes2,
+.container_keyframes4,
+.container_keyframes5 {
+  display: flex;
+  align-items: center; /* alinha o centro das caixas e figuras na mesma linha */
+}
+
+.container_keyframes1 {
+  gap: 20px;
+}
+
+.container_keyframes2,
+.container_keyframes4,
+.container_keyframes5 {
+  gap: 80px;
+}
+
+.container_keyframes4,
+.container_keyframes5 {
+  padding: 20px 0; /* só em cima e embaixo: nada empurra para o lado */
+}
+
+.demo_quadrado {
+  margin-top: 30px;
+}
+
+.retangulo_mudaCor {
+  width: 150px;
+  height: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: retangulo_mudaCor 2s infinite ease-in-out;
+}
+
+@keyframes retangulo_mudaCor {
+  from { background-color: #8A00C4; }
+  to   { background-color: #FF13F0; }
+}
+
+.demonstracao { /* demonstração ao vivo do exemplo "pular" */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 40px;
+  height: 150px;
+}
+
+.demo_keyframes {
+  animation: pular 3s ease-in-out infinite;
+}
+
+#quadrado_pulando {
+  width: 100px;
+  height: 100px;
+  background-color: #bd00ff;
+  border: 3px solid #00f3ff;
+  box-sizing: border-box;
+}
+
+#coelho {
+  width: 130px;
+  height: 130px;
+  display: block;
+}
+
+@keyframes pular {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-80px); }
+  100% { transform: translateY(0); }
+}
+
+/* ---------- PROPRIEDADES DE ANIMAÇÃO ---------- */
+
+.container_propriedades {
+  margin: 0 150px;
+}
+
+.container_propriedades > div { /* uma regra para todas as linhas (name, duration, timing...) */
+  display: grid;
+  grid-template-columns: 334px 40px 1fr 40px 1fr; /* card | seta | código | seta | demonstração */
+  column-gap: 20px;
+  align-items: center;   /* centro na vertical */
+  justify-items: center; /* centro na horizontal dentro de cada coluna */
+  padding: 20px 0;
+}
+
+.propriedades { /* card de cada propriedade */
+  width: 300px;
+  padding: 15px;
+  border: 2px solid #00f3ff;
+  border-radius: 15px 0 15px 0;
+  margin: 0;
+  background-color: #003c40;
+}
+
+.container_propriedades .codigo {
+  font-size: 14px;
+}
+
+.container_propriedades .seta {
+  width: 40px;
+  height: auto;
+}
+
+.demo_linha { /* a seta e a demonstração entram direto na grade da linha */
+  display: contents;
+}
+
+/* ----- caixas de demonstração (visual compartilhado) ----- */
+
+.demo_canguru,
+.demo_contagem,
+.demo_direcao,
+.demo_carrinho,
+.pista_corrida {
+  background-color: #111;
+  border: 2px solid #bd00ff;
+  border-radius: 15px;
+}
+
+.demo_contagem { /* usada por iteration-count, play-state e timeline */
+  display: flex;
+  flex-direction: column;  /* a demonstração em cima e a legenda embaixo */
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.legenda_contagem { /* legenda "Passe o mouse na caixa para começar." */
+  margin: 15px 0 0 0;
+  font-size: 14px;
+}
+
+/* ----- animation-name: os três gatinhos ----- */
+
+.demo_nome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 40px;
+  background-color: #111;
+}
+
+.item_nome {
+  display: flex;
+  flex-direction: column; /* gato em cima, nome embaixo */
+  align-items: center;
+  gap: 10px;
+}
+
+.item_nome span {
+  color: #00f3ff; /* o nome do @keyframes */
+  font-size: 16px;
+}
+
+.gato_demo { /* o que é IGUAL nos três: só o nome da animação muda */
+  width: 90px;
+  animation-duration: 3s;                 /* sem duração a animação não roda, mesmo com nome */
+  animation-iteration-count: infinite;
+  animation-direction: alternate;         /* vai e volta */
+  animation-timing-function: ease-in-out;
+}
+
+.gato1 { animation-name: desvanecer; }
+.gato2 { animation-name: piscar; }
+.gato3 { animation-name: surgir; }
+
+@keyframes desvanecer {
+  from { opacity: 1; } /* totalmente visível */
+  to   { opacity: 0; } /* totalmente transparente */
+}
+
+@keyframes piscar {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.2; }
+}
+
+@keyframes surgir {
+  from { opacity: 0; transform: translateY(20px); } /* invisível e 20px abaixo */
+  to   { opacity: 1; transform: translateY(0); }    /* visível e na posição normal */
+}
+
+/* ----- animation-duration: o homem ----- */
+
+.homem {
+  width: 100px;
+  height: 100px;
+  background-color: #00adb5;
+  border-radius: 30px;
+  animation: homem_deslocar 2s ease-in-out infinite alternate;
+  /* 2s = duração de cada ida | ease-in-out = começa e termina devagar
+     infinite = repete para sempre | alternate = na volta, anda ao contrário */
+}
+
+@keyframes homem_deslocar {
+  from { transform: translateX(-25px); } /* começa 25px à esquerda */
+  to   { transform: translateX(75px); }  /* termina 75px à direita */
+}
+
+/* ----- animation-timing-function: a pista de corrida ----- */
+
+.pista_corrida {
+  width: 340px;
+  box-sizing: border-box; /* padding e borda entram nos 340px */
+  padding: 15px 20px;
+}
+
+.faixa {
+  display: flex;
+  align-items: center; /* nome e trilho na mesma altura */
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.nome_faixa {
+  width: 80px; /* largura fixa: todas as bolinhas largam do mesmo ponto */
+  flex-shrink: 0;
+  color: #00f3ff;
+  font-size: 14px;
+}
+
+.trilho {
+  width: 205px;                     /* comprimento da pista */
+  flex-shrink: 0;                   /* o navegador não pode encolher a pista */
+  border-right: 3px dashed #ffb703; /* linha de chegada */
+}
+
+.bolinha {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; /* 50% transforma o quadrado em círculo */
+  background-color: #bd00ff;
+  border: 3px solid #00f3ff;
+  box-sizing: border-box;
+}
+
+.legenda_pista { /* texto embaixo da pista de corrida */
+  margin: 10px 0 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+@keyframes correr {
+  0%   { transform: translateX(0); }     /* largada */
+  80%  { transform: translateX(175px); } /* chegada aos 4s (80% de 5s): 205px de pista menos a bolinha */
+  100% { transform: translateX(175px); } /* fica parada na chegada antes de reiniciar */
+}
+
+/* a mesma animação em todas; muda só a função de tempo (fica DEPOIS do .bolinha, para as cores valerem) */
+.t_linear {
+  background-color: rgb(255, 255, 0);
+  border: 3px solid blue;
+  animation: correr 5s linear infinite;      /* velocidade constante */
+}
+
+.t_ease_in {
+  background-color: #FF13F0;
+  border: 3px solid yellow;
+  animation: correr 5s ease-in infinite;     /* começa devagar e acelera */
+}
+
+.t_ease_out {
+  background-color: orange;
+  border: 3px solid white;
+  animation: correr 5s ease-out infinite;    /* começa rápido e freia no fim */
+}
+
+.t_ease_in_out {
+  background-color: greenyellow;
+  border: 3px solid rgb(255, 0, 191);
+  animation: correr 5s ease-in-out infinite; /* devagar no começo e no fim, rápido no meio */
+}
+
+.t_steps {
+  background-color: blue;
+  border: 3px solid rgb(176, 176, 255);
+  animation: correr 5s steps(6) infinite;    /* anda em 6 pulos, sem movimento suave */
+}
+
+/* ----- animation-delay: os cangurus ----- */
+
+.demo_canguru {
+  display: flex;
+  flex-direction: column;  /* os cangurus em cima e a legenda embaixo */
+  justify-content: flex-end;
+  height: 200px;
+  padding: 20px 30px;
+}
+
+.cangurus { /* para os cangurus ficarem um ao lado do outro */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+}
+
+.canguru_pula {
+  width: 70px;
+}
+
+.demo_canguru:hover .canguru_pula { /* funciona só quando passa o mouse em cima */
+  animation: pula_canguru 1s ease-in-out infinite; /* os dois fazem a mesma animação */
+}
+
+.demo_canguru:hover .canguru_atraso { /* fica DEPOIS do .canguru_pula, senão o atalho "animation" zera o delay */
+  animation-delay: 4s; /* só o segundo canguru espera 4s antes de começar */
+}
+
+@keyframes pula_canguru {
+  0%, 100% { transform: translateY(0); }     /* no chão */
+  50%      { transform: translateY(-90px); } /* 90px acima */
+}
+
+/* ----- animation-iteration-count: os sapos ----- */
+
+.sapos_contagem {
+  display: flex;
+  gap: 30px;               /* espaço entre os três sapos */
+}
+
+.item_contagem {
+  display: flex;
+  flex-direction: column;  /* sapo em cima, nome embaixo */
+  align-items: center;
+  gap: 8px;
+  padding-top: 45px;       /* espaço livre em cima: o sapo sobe 40px no pulo */
+}
+
+.item_contagem span {
+  color: #00f3ff;
+  font-size: 16px;
+}
+
+.sapo {
+  width: 60px;             /* só a largura: a altura acompanha a proporção */
+}
+
+/* a animação SÓ existe enquanto o mouse está na caixa */
+.demo_contagem:hover .sapo {
+  animation-name: pular_sapo;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+/* o que muda de um sapo para outro: só o número de repetições */
+.um     { animation-iteration-count: 1; }         /* pula 1 vez e para */
+.tres   { animation-iteration-count: 3; }         /* pula 3 vezes e para */
+.sempre { animation-iteration-count: infinite; }  /* pula até o mouse sair */
+
+@keyframes pular_sapo {
+  0%, 100% { transform: translateY(0); }      /* no chão */
+  50%      { transform: translateY(-40px); }  /* 40px acima */
+}
+
+/* ----- animation-direction: os quatro quadrados ----- */
+
+.demo_direcao { /* caixa que contém os quatro exemplos */
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 30px;
+}
+
+.quadrados_direcao {
+  display: flex;
+  flex-direction: column; /* um quadradinho embaixo do outro */
+  gap: 25px;
+}
+
+.item_direcao { /* cada quadrado + nome */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.item_direcao span {
+  font-size: 14px;
+}
+
+.quadrado_direcao {
+  width: 50px;
+  height: 50px;
+  background-color: #00f3ff;
+}
+
+/* cada quadrado recebe uma direção diferente */
+.normal            { animation-direction: normal; }
+.inversa           { animation-direction: reverse; }
+.alternativa       { animation-direction: alternate; }
+.alternativa_inversa { animation-direction: alternate-reverse; }
+
+/* a animação fica parada até passar o mouse na caixa */
+.demo_direcao:hover .quadrado_direcao {
+  animation-name: mover_quadrado;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes mover_quadrado {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100px); }
+}
+
+/* ----- animation-fill-mode: o carrinho ----- */
+
+.demo_carrinho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 150px;
+  width: 250px;
+  padding: 20px 30px;
+}
+
+.carrinho {
+  width: 90px;
+}
+
+.demo_carrinho:hover .carrinho {
+  animation-name: andar_carrinho;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards; /* ao terminar, o carrinho fica parado no final */
+}
+
+@keyframes andar_carrinho {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(100px); }
+}
+
+/* ----- animation-play-state: o gatinho ----- */
+
+.gatinho {
+  width: 90px;
+  margin-top: 60px;  /* espaço livre em cima: o gatinho sobe 50px no pulo */
+  animation: pular_gatinho 1s ease-in-out infinite;
+}
+
+/* só pausa enquanto o mouse está na caixa; ao sair, a animação continua de onde parou */
+.demo_play:hover .gatinho {
+  animation-play-state: paused;
+}
+
+@keyframes pular_gatinho {
+  0%, 100% { transform: translateY(0); }     /* no chão */
+  50%      { transform: translateY(-50px); } /* 50px acima */
+}
+
+/* ----- animation-timeline: o solzinho ----- */
+
+.mini_pagina { /* a "mini página": uma caixa com rolagem própria */
+  width: 220px;
+  height: 200px;
+  overflow-y: scroll;        /* a barra de rolagem fica sempre visível */
+  background-color: #000;
+  border: 2px solid #00f3ff;
+  border-radius: 10px;
+}
+
+.mini_pagina_conteudo { /* conteúdo bem mais alto que a caixa, para existir o que rolar */
+  height: 700px;
+  padding-top: 55px;         /* o sol começa na mesma altura em que vai ficar preso */
+  box-sizing: border-box;
+  background-image: repeating-linear-gradient( /* linhas só para dar para ver o conteúdo deslizando */
+    to bottom,
+    transparent 0,
+    transparent 38px,
+    rgba(255, 255, 255, 0.15) 38px,
+    rgba(255, 255, 255, 0.15) 40px
+  );
+}
+
+.solzinho {
+  display: block;
+  width: 90px;
+  margin: 0 auto;
+  position: sticky;          /* o sol fica preso no topo da caixa enquanto o conteúdo rola */
+  top: 55px;
+  animation: girar_sol linear;
+  animation-timeline: scroll(); /* o progresso depende de quanto a caixa foi rolada, não do tempo */
+}
+
+@keyframes girar_sol {
+  from { transform: rotate(0deg) scale(0.6); }
+  to   { transform: rotate(360deg) scale(1.2); }
+}
+
+/* ---------- TRANSFORM ---------- */
+
+.container_transform {
+  margin-bottom: 100px; /* o resto (margem de 150px dos lados e a grade) vem do container_propriedades */
+}
+
+.palco_t { /* espaço livre para o quadrado se mexer sem bater na borda da caixa */
+  width: 200px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quad_t {
+  width: 70px;
+  height: 70px;
+  background-color: #bd00ff;
+  border: 3px solid #00f3ff;
+  box-sizing: border-box;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* o transform só muda enquanto o mouse está na caixa; ao sair, volta suave */
+.demo_t:hover .t_translate { transform: translate(60px, -30px); }
+.demo_t:hover .t_rotate    { transform: rotate(45deg); }
+.demo_t:hover .t_scale     { transform: scale(1.5); }
+.demo_t:hover .t_skew      { transform: skew(25deg, 10deg); }
+.demo_t:hover .t_combinar  { transform: translateX(50px) rotate(45deg); }
+
+/* ---------- INTEGRANTES ---------- */
+
+.integrantes_lista {
+  font-size: 25px;
+  margin: 0 180px;
+}
